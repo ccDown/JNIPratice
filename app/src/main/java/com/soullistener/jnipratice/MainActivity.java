@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.soullistener.com.soullistener.jnipratice.R;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

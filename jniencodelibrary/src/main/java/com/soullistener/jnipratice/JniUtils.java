@@ -8,9 +8,10 @@ package com.soullistener.jnipratice;
 public class JniUtils {
 
     public static void init() {
-        System.loadLibrary("native-lib");
+        System.loadLibrary("jniencode");
     }
 
+    public static native String getStringFromJNI();
     /**
      * 进行加密操作
      * @param byteKey

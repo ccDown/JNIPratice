@@ -160,7 +160,7 @@ Java_com_soullistener_jnipratice_JniUtils_deCode(JNIEnv *env, jclass type, jbyte
 
 JNIEXPORT void throwJNIException(JNIEnv* pEnv) {
     //注意JNIException的路径
-    jclass lClass = pEnv->FindClass("com/soullistener/jnipratice/JNIException");
+    jclass lClass = pEnv->FindClass("com/soullistener/com.soullistener.jnipratice/JNIException");
     if (lClass != NULL) {
         pEnv->ThrowNew(lClass, "Throw JNIException");
         //如果我们长时间不再需要引用这个异常类时，可以使用DeleteLocalRef()来解除它。
@@ -173,4 +173,11 @@ void handler(int sig) {
     signal(sig, SIG_DFL);
     throwJNIException(penv);
     longjmp (jumpflg, 1);
+}
+
+extern "C"
+JNIEXPORT jstring JNICALL
+Java_com_soullistener_jnipratice_JniUtils_getStringFromJNI(JNIEnv *env, jclass type) {
+    jstring string = env->NewStringUTF("来自JNI");
+    return string;
 }
